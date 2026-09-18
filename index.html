@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game">
+
+        <h1>ROCK · PAPER · SCISSORS</h1>
+
+        <div class="score">
+            <span>YOU: <strong id="human-score">0</strong></span>
+            <span>CPU: <strong id="computer-score">0</strong></span>
+        </div>
+
+        <div class="round">
+            <p>ROUND <span id="round-number">1</span>/5</p>
+            <h2>CHOOSE YOUR MOVE!</h2>
+            <p id="message">Make your choice</p>
+        </div>
+
+        <div class="choices">
+
+            <button class="choice" data-choice="rock">
+                ✊
+                <span>ROCK</span>
+            </button>
+
+            <button class="choice" data-choice="paper">
+                ✋
+                <span>PAPER</span>
+            </button>
+
+            <button class="choice" data-choice="scissors">
+                ✌️
+                <span>SCISSORS</span>
+            </button>
+
+        </div>
+
+        <div class="result">
+            <p id="result-text">READY?</p>
+            <div>
+                <span id="human-choice">❔</span>
+                <strong id="result-score">0 - 0</strong>
+                <span id="computer-choice">❔</span>
+            </div>
+        </div>
+
+        <button id="restart">RESTART</button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
