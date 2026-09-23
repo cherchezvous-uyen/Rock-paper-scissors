@@ -1,15 +1,15 @@
 let humanScore = 0;
 let computerScore = 0;
 let round = 0;
-
-function getComputerChoice() {
-    let random = Math.random();
-
-    if (random < 1 / 3) {
+function computerPlay() {
+    let random = Math.floor(Math.random()*3);
+    if(random == 0) {
         return "rock";
-    } else if (random < 2 / 3) {
+    } else if(random == 1) {
         return "paper";
-    } else {
-        return "scissors";
+    } 
+    else {
+        return "scissors"
     }
 }
+func
