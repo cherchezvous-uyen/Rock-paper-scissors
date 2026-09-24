@@ -12,4 +12,12 @@ function computerPlay() {
         return "scissors"
     }
 }
-func
+function playRound()
+const buttons = document.querySelectorAll('.button')
+buttons.forEach(function(button){
+    button.addEventListener('click', function(){
+        const playerChoice = button.data.choice;
+        const computerChoice = computerPlay();
+        playRou
+    })
+})
