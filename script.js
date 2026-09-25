@@ -4,6 +4,8 @@ let round = 0;
 const resultText = document.querySelector("#result-text");
 const resultScore = document.querySelector("#result-score");
 const roundText = document.querySelector("#round-number");
+const humanChoice = document.querySelector("#human-choice");
+const computerChoiceElement = document.querySelector("#computer-choice");
 function computerPlay() {
     let random = Math.floor(Math.random()*3);
     if(random == 0) {
@@ -15,6 +17,43 @@ function computerPlay() {
         return "scissors"
     }
 }
+
+const buttons = document.querySelectorAll('.choice')
+buttons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const playerChoice = button.dataset.choice;
+
+        const cpuChoice = computerPlay();
+
+        const result = playRound(playerChoice, cpuChoice);
+
+        resultText.textContent = result;
+
+        resultScore.textContent =
+            `${humanScore} - ${computerScore}`;
+
+        humanChoice.textContent =
+            playerChoice === "rock" ? "✊" :
+            playerChoice === "paper" ? "✋" :
+            "✌️";
+
+        computerChoiceElement.textContent =
+            cpuChoice === "rock" ? "✊" :
+            cpuChoice === "paper" ? "✋" :
+            "✌️";
+
+        round++;
+
+        roundText.textContent = round;
+
+        console.log(playerChoice);
+        console.log(cpuChoice);
+        console.log(result);
+    });
+
+});
 function playRound(playerChoice, computerChoice) {
     if ((playerChoice == 'paper' && computerChoice == 'rock') || 
     (playerChoice == 'scissors' && computerChoice == 'paper') || 
@@ -27,27 +66,3 @@ function playRound(playerChoice, computerChoice) {
         return "Computer wins!";
     }
 }
-const buttons = document.querySelectorAll('.choice')
-buttons.forEach(function(button){
-    button.addEventListener('click', function(){
-        const playerChoice = button.dataset.choice;
-        const computerChoice = computerPlay();
-        const result = playRound(playerChoice, computerChoice);
-
-        resultText.textContent = result;
-        resultScore.textContent = `${humanScore} - ${computerScore}`;
-        round++;
-        if(round >= 5 || humanScore === 5 || computerScore === 5) { 
-            // End the game
-            round = 0;
-            humanScore = 0;
-            computerScore = 0;
-
-        }
-        roundText.textContent = `Round: ${round}`;
-        console.log(playerChoice);
-        console.log(computerChoice);
-        console.log(result);
-        console.log(`Round: ${round}`);
-    })
-})
