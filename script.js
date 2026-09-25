@@ -55,6 +55,9 @@ buttons.forEach(function(button) {
 
 });
 function playRound(playerChoice, computerChoice) {
+    if((playerChoice == computerChoice)) {
+        return "It's a tie!";
+    }
     if ((playerChoice == 'paper' && computerChoice == 'rock') || 
     (playerChoice == 'scissors' && computerChoice == 'paper') || 
     (playerChoice == 'rock' && computerChoice == 'scissors') ){
